@@ -33,26 +33,39 @@ seo: &seo
 collections:
   # Global Site Configuration
   - name: "config"
-    label: "Site Config"
     files:
       - label: "Site Settings"
-        name: "site"
-        file: "content/config/site.json"
+        name: "settings"
+        file: "content/config/settings.json"
         fields:
-          - { name: "siteName", label: "Site Name", widget: "string" }
-          - { name: "themeColor", label: "Theme Color", widget: "color" }
-          - { name: "maintenanceMode", label: "Maintenance Mode", widget: "boolean" }
-          - label: "Buttons"
-            name: "buttons"
-            widget: "object"
-            fields:
-              - { label: "Next", name: "next", widget: "string" }
-              - { label: "Previous", name: "previous", widget: "string" }
-              - { label: "Close", name: "close", widget: "string" }
-              - { label: "Read More", name: "readMore", widget: "string" }
-              - { label: "Send", name: "send", widget: "string" }
+          - { label: "Site Name", name: "siteName", widget: "string" }
+          - { label: "Site URL", name: "siteUrl", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Favicon", name: "favicon", widget: "image" }
+          - { label: "Theme Color", name: "themeColor", widget: "color", enableAlpha: true }
+          - { label: "Analytics ID", name: "analyticsId", widget: "string", required: false }
 
-    # 🔹 PAGES — dynamiczne pliki w content/pages
+      - label: "Button Labels"
+        name: "buttons"
+        file: "content/config/buttons.json"
+        fields:
+          - { label: "Next", name: "next", widget: "string" }
+          - { label: "Previous", name: "previous", widget: "string" }
+          - { label: "Close", name: "close", widget: "string" }
+          - { label: "Article: More", name: "article", widget: "string", default: "Read more" }
+          - { label: "Form: Send", name: "send", widget: "string" }
+
+      - label: "Social Links"
+        name: "socials"
+        file: "content/config/social-links.json"
+        fields:
+          - { label: "Facebook", name: "facebook", widget: "string", required: false }
+          - { label: "Twitter", name: "twitter", widget: "string", required: false }
+          - { label: "Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+
+    # PAGES
     - name: "pages"
       label: "Pages"
       folder: "content/pages"
@@ -62,5 +75,6 @@ collections:
       slug: "{{slug}}"
       fields:
         - { name: "title", label: "Title", widget: "string" }
+        - { name: "description", label: "Description", widget: "string" }
         - { name: "content", label: "Content", widget: "markdown" }
         - *seo
