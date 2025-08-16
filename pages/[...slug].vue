@@ -8,7 +8,7 @@ const { data: page } = await useAsyncData(`page-${slugPath}`, () =>
   queryContent('pages').where({ _path: slugPath }).findOne()
 )
 
-setSeoHead(page.SEOmetaData);
+// setSeoHead(page.SEOmetaData);
 
 </script>
 
