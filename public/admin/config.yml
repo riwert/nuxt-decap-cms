@@ -66,6 +66,7 @@ collections:
 
   # Global Site Configuration
   - name: "configs"
+    label: "Config"
     files:
       - label: "Site Settings"
         name: "settings"
