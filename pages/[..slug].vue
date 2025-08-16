@@ -2,11 +2,13 @@
 
 const route = useRoute()
 
-const { data: page } = await useAsyncData(route.path, () => {
-  return queryCollection('content').path(route.path).first()
-})
+const slugPath = '/' + (route.params.slug ? route.params.slug.join('/') : 'pages')
 
-setSeoHead(home.SEOmetaData);
+const { data: page } = await useAsyncData(`page-${slugPath}`, () =>
+  queryContent('pages').where({ _path: slugPath }).findOne()
+)
+
+setSeoHead(page.SEOmetaData);
 
 </script>
 
