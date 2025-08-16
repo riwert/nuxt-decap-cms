@@ -25,25 +25,44 @@ seo: &seo
   widget: "object"
   collapsed: true
   fields:
-    - { name: "metaTitle", label: "SEO Title", widget: "string", default: "{{ title }}", required: true }
-    - { name: "metaDescription", label: "SEO Description", widget: "string", pattern: [".{20,160}", "between 20 and 160 characters"], required: true, hint: "must be between 20 and 160 characters" }
+    - {
+        name: "metaTitle",
+        label: "SEO Title",
+        widget: "string",
+        default: "{{ title }}",
+        required: true,
+      }
+    - {
+        name: "metaDescription",
+        label: "SEO Description",
+        widget: "string",
+        pattern: [".{20,160}", "between 20 and 160 characters"],
+        required: true,
+        hint: "must be between 20 and 160 characters",
+      }
     - { name: "metaImage", label: "SEO image", widget: "image" }
-    - { name: "keywords", label: "Keywords", widget: "string", hint: "keywords are comma separated", required: false }
+    - {
+        name: "keywords",
+        label: "Keywords",
+        widget: "string",
+        hint: "keywords are comma separated",
+        required: false,
+      }
 
 collections:
-    # PAGES
-    - name: "pages"
-      label: "Pages"
-      folder: "content/pages"
-      create: true
-      extension: "md"
-      format: "frontmatter"
-      slug: "{{slug}}"
-      fields:
-        - { name: "title", label: "Title", widget: "string" }
-        - { name: "description", label: "Description", widget: "string" }
-        - { name: "content", label: "Content", widget: "markdown" }
-        - *seo
+  # PAGES
+  - name: "pages"
+    label: "Pages"
+    folder: "content/pages"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "description", label: "Description", widget: "string" }
+      - { name: "content", label: "Content", widget: "markdown" }
+      - *seo
 
   # Global Site Configuration
   - name: "configs"
@@ -57,8 +76,18 @@ collections:
           - { label: "Tagline", name: "tagline", widget: "string" }
           - { label: "Logo", name: "logo", widget: "image" }
           - { label: "Favicon", name: "favicon", widget: "image" }
-          - { label: "Theme Color", name: "themeColor", widget: "color", enableAlpha: true }
-          - { label: "Analytics ID", name: "analyticsId", widget: "string", required: false }
+          - {
+              label: "Theme Color",
+              name: "themeColor",
+              widget: "color",
+              enableAlpha: true,
+            }
+          - {
+              label: "Analytics ID",
+              name: "analyticsId",
+              widget: "string",
+              required: false,
+            }
 
       - label: "Button Labels"
         name: "buttons"
@@ -67,14 +96,39 @@ collections:
           - { label: "Next", name: "next", widget: "string" }
           - { label: "Previous", name: "previous", widget: "string" }
           - { label: "Close", name: "close", widget: "string" }
-          - { label: "Article: More", name: "article", widget: "string", default: "Read more" }
+          - {
+              label: "Article: More",
+              name: "article",
+              widget: "string",
+              default: "Read more",
+            }
           - { label: "Form: Send", name: "send", widget: "string" }
 
       - label: "Social Links"
         name: "socials"
         file: "content/config/social-links.json"
         fields:
-          - { label: "Facebook", name: "facebook", widget: "string", required: false }
-          - { label: "Twitter", name: "twitter", widget: "string", required: false }
-          - { label: "Instagram", name: "instagram", widget: "string", required: false }
-          - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+          - {
+              label: "Facebook",
+              name: "facebook",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Twitter",
+              name: "twitter",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Instagram",
+              name: "instagram",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "LinkedIn",
+              name: "linkedin",
+              widget: "string",
+              required: false,
+            }
