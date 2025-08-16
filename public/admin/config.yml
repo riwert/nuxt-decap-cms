@@ -29,7 +29,7 @@ seo: &seo
         name: "metaTitle",
         label: "SEO Title",
         widget: "string",
-        default: "{{ title }}",
+        default: "{{title}}",
         required: true,
       }
     - {
