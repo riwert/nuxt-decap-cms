@@ -62,7 +62,6 @@ collections:
     label: "Pages"
     folder: "content/pages"
     create: true
-    slug: "{{slug}}"
     files:
       - name: "home"
         label: "Home"
