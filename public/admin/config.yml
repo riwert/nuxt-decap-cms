@@ -31,8 +31,22 @@ seo: &seo
     - { name: "keywords", label: "Keywords", widget: "string", hint: "keywords are comma separated", required: false }
 
 collections:
+    # PAGES
+    - name: "pages"
+      label: "Pages"
+      folder: "content/pages"
+      create: true
+      extension: "md"
+      format: "frontmatter"
+      slug: "{{slug}}"
+      fields:
+        - { name: "title", label: "Title", widget: "string" }
+        - { name: "description", label: "Description", widget: "string" }
+        - { name: "content", label: "Content", widget: "markdown" }
+        - *seo
+
   # Global Site Configuration
-  - name: "config"
+  - name: "configs"
     files:
       - label: "Site Settings"
         name: "settings"
@@ -64,17 +78,3 @@ collections:
           - { label: "Twitter", name: "twitter", widget: "string", required: false }
           - { label: "Instagram", name: "instagram", widget: "string", required: false }
           - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
-
-    # PAGES
-    - name: "pages"
-      label: "Pages"
-      folder: "content/pages"
-      create: true
-      extension: "md"
-      format: "frontmatter"
-      slug: "{{slug}}"
-      fields:
-        - { name: "title", label: "Title", widget: "string" }
-        - { name: "description", label: "Description", widget: "string" }
-        - { name: "content", label: "Content", widget: "markdown" }
-        - *seo
