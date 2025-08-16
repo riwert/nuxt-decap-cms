@@ -1,17 +1,17 @@
 <template>
-	<main id="main" class="home">
-		<MDC :value="home.content" />
+	<main id="main" class="index">
+		<MDC :value="index.content" />
 	</main>
 
 </template>
 
 <script setup>
 
-const { data: home } = reactive(await useAsyncData("home", () =>
-	queryContent("/pages/home").findOne())
+const { data: index } = reactive(await useAsyncData("index", () =>
+	queryContent("/pages/index").findOne())
 );
 
-setSeoHead(home.SEOmetaData);
+setSeoHead(index.SEOmetaData);
 
 </script>
 

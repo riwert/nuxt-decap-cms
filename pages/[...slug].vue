@@ -16,7 +16,6 @@ setSeoHead(page.SEOmetaData);
 	<main id="main" class="home">
 		<ContentRenderer v-if="page" :value="page" />
 	</main>
-
 </template>
 
 <style lang="scss" scoped>
