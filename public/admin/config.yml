@@ -18,6 +18,7 @@ media_library:
     cloud_name: dgdoyeu6y
     api_key: 391131789616344
 
+# Component SEO for pages
 seo: &seo
   name: "SEOmetaData"
   label: "SEO"
@@ -30,30 +31,36 @@ seo: &seo
     - { name: "keywords", label: "Keywords", widget: "string", hint: "keywords are comma separated", required: false }
 
 collections:
-  # 🔹 GLOBAL CONTENT
-  - name: "globalContent"
-    label: "Global Content"
-    create: true
+  # Global Site Configuration
+  - name: "config"
+    label: "Site Config"
     files:
-      - label: "Buttons"
-        name: "buttons"
-        file: "content/site/buttons.md"
+      - label: "Site Settings"
+        name: "site"
+        file: "content/config/site.json"
         fields:
-          - { label: "Next", name: "next", widget: "string" }
-          - { label: "Previous", name: "previous", widget: "string" }
-          - { label: "Close", name: "close", widget: "string" }
-          - { label: "Article: More", name: "article", widget: "string", default: "read more" }
-          - { label: "Form: Send", name: "send", widget: "string" }
+          - { name: "siteName", label: "Site Name", widget: "string" }
+          - { name: "themeColor", label: "Theme Color", widget: "color" }
+          - { name: "maintenanceMode", label: "Maintenance Mode", widget: "boolean" }
+          - label: "Buttons"
+            name: "buttons"
+            widget: "object"
+            fields:
+              - { label: "Next", name: "next", widget: "string" }
+              - { label: "Previous", name: "previous", widget: "string" }
+              - { label: "Close", name: "close", widget: "string" }
+              - { label: "Read More", name: "readMore", widget: "string" }
+              - { label: "Send", name: "send", widget: "string" }
 
-  # 🔹 PAGES — dynamiczne pliki w content/pages
-  - name: "pages"
-    label: "Pages"
-    folder: "content/pages"
-    create: true
-    extension: "md"
-    format: "frontmatter"
-    slug: "{{slug}}"
-    fields:
-      - { name: "title", label: "Title", widget: "string" }
-      - { name: "content", label: "Content", widget: "markdown" }
-      - *seo
+    # 🔹 PAGES — dynamiczne pliki w content/pages
+    - name: "pages"
+      label: "Pages"
+      folder: "content/pages"
+      create: true
+      extension: "md"
+      format: "frontmatter"
+      slug: "{{slug}}"
+      fields:
+        - { name: "title", label: "Title", widget: "string" }
+        - { name: "content", label: "Content", widget: "markdown" }
+        - *seo
