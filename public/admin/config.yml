@@ -18,7 +18,6 @@ media_library:
     cloud_name: dgdoyeu6y
     api_key: 391131789616344
 
-# SEO anchor:
 seo: &seo
   name: "SEOmetaData"
   label: "SEO"
@@ -27,60 +26,34 @@ seo: &seo
   fields:
     - { name: "metaTitle", label: "SEO Title", widget: "string", default: "{{ title }}", required: true }
     - { name: "metaDescription", label: "SEO Description", widget: "string", pattern: [".{20,160}", "between 20 and 160 characters"], required: true, hint: "must be between 20 and 160 characters" }
-    - { name: "metaImage", label: "SEO image", widget: "image"}
-    - { name: "keywords", label: "keywords", widget: "string", hint: "keywords are comma separated", required: false }
+    - { name: "metaImage", label: "SEO image", widget: "image" }
+    - { name: "keywords", label: "Keywords", widget: "string", hint: "keywords are comma separated", required: false }
 
-# Global fields
 collections:
+  # 🔹 GLOBAL CONTENT
   - name: "globalContent"
-    label: "global content"
+    label: "Global Content"
     create: true
     files:
-      - label: "buttons"
+      - label: "Buttons"
         name: "buttons"
         file: "content/site/buttons.md"
         fields:
-          - label: "next"
-            name: "next"
-            widget: "string"
-          - label: "previous"
-            name: "previous"
-            widget: "string"
-          - label: "close"
-            name: "close"
-            widget: "string"
-          - label: "article: more"
-            name: "article"
-            widget: "string"
-            default: "read more"
-          - label: "form: send"
-            name: "send"
-            widget: "string"
+          - { label: "Next", name: "next", widget: "string" }
+          - { label: "Previous", name: "previous", widget: "string" }
+          - { label: "Close", name: "close", widget: "string" }
+          - { label: "Article: More", name: "article", widget: "string", default: "read more" }
+          - { label: "Form: Send", name: "send", widget: "string" }
 
-  # SINGLE PAGES
+  # 🔹 PAGES — dynamiczne pliki w content/pages
   - name: "pages"
     label: "Pages"
     folder: "content/pages"
     create: true
-    files:
-      - name: "home"
-        label: "Home"
-        file: "content/pages/home.md"
-        fields:
-          - { name: "title", label: "Title", widget: "string" }
-          - { name: "content", label: "Content", widget: "markdown" }
-          - *seo
-      - name: "typography"
-        label: "Typography"
-        file: "content/pages/typography.md"
-        fields:
-          - { name: "title", label: "Title", widget: "string" }
-          - { name: "content", label: "Content", widget: "markdown" }
-      - name: "Fiddly diddlies"
-        label: "diddlies"
-        extension: json
-        file: "content/pages/fiddly-diddlies.json"
-        fields:
-          - { name: "title", label: "Title", widget: "string" }
-          - { name: "test-fields", label: "field objects test", widget: "string", default: "fields.title" }
-          - { name: "content", label: "Content", widget: "markdown" }
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "content", label: "Content", widget: "markdown" }
+      - *seo
