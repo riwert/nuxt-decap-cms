@@ -2,7 +2,7 @@
 
 const route = useRoute()
 
-const slugPath = '/' + (route.params.slug ? 'pages/' + route.params.slug.join('/') : 'pages')
+const slugPath = '/' + (route.params.slug ? route.params.slug.join('/') : 'pages')
 
 const { data: page } = await useAsyncData(`page-${slugPath}`, () =>
   queryContent('pages').where({ _path: slugPath }).findOne()
