@@ -17,6 +17,7 @@
     "webpack": "^5.84.0"
   },
   "dependencies": {
-    "@nuxtjs/cloudinary": "^2.3.4"
+    "@nuxtjs/cloudinary": "^2.3.4",
+    "@parcel/watcher": "^2.5.1"
   }
 }

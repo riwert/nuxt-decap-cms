@@ -8,13 +8,13 @@
 		<nav :class="{ mobileMenuOpen: mobileMenuActive }">
 
 			<menu class="main-menu__basic">
-				<NuxtLink to="/" class="menu-item item--home" prefetch>
-					<span>home</span>
-				</NuxtLink>
-				<NuxtLink to="/typography" class="menu-item" prefetch>
-					<span>typography</span>
-				</NuxtLink>
+				<ContentList path="/pages" v-slot="{ list }">
+					<NuxtLink v-for="page in list" :key="page._path" :to="page._path.replace('pages/','')" class="menu-item" prefetch>
+						<span>{{page.title}}</span>
+					</NuxtLink>
+				</ContentList>
 			</menu>
+
 		</nav>
 	</div>
 </template>

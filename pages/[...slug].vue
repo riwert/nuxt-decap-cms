@@ -1,8 +1,8 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 
 const route = useRoute()
 
-const slugPath = '/' + (route.params.slug ? route.params.slug.join('/') : 'pages')
+const slugPath = '/' + (route.params.slug ? 'pages/' + route.params.slug.join('/') : 'pages')
 
 const { data: page } = await useAsyncData(`page-${slugPath}`, () =>
   queryContent('pages').where({ _path: slugPath }).findOne()
@@ -14,7 +14,8 @@ const { data: page } = await useAsyncData(`page-${slugPath}`, () =>
 
 <template>
 	<main id="main" class="home">
-		<ContentRenderer v-if="page" :value="page" />
+		<h1 v-if="page.title">{{ page.title }}</h1>
+		<MDC v-if="page.content" :value="page.content" />
 	</main>
 </template>
 

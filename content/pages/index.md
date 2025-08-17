@@ -1,6 +1,6 @@
 ---
 title: Strona główna
-description: Opis strony główej
+description: Opis strony głównej
 content: Zawartość strony głównej
 SEOmetaData:
   metaImage: https://decapcms.org/img/decap-logo.svg
