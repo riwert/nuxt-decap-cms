@@ -9,7 +9,7 @@
 
 			<menu class="main-menu__basic">
 				<ContentList path="/pages" v-slot="{ list }">
-					<NuxtLink v-for="page in list" :key="page._path" :to="page._path.replace('pages/','')" class="menu-item" prefetch>
+					<NuxtLink v-for="page in list" :key="page._path" :to="page._path.replace('pages','')" class="menu-item" prefetch>
 						<span>{{page.title}}</span>
 					</NuxtLink>
 				</ContentList>
