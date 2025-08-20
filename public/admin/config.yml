@@ -53,16 +53,26 @@ collections:
   # PAGES
   - name: "pages"
     label: "Pages"
-    folder: "content/pages"
+    folder: "content"
     create: true
     extension: "md"
     format: "frontmatter"
     slug: "{{slug}}"
+    sortable_fields: ["order"]
     fields:
       - { name: "title", label: "Title", widget: "string" }
       - { name: "description", label: "Description", widget: "string" }
-      - { name: "content", label: "Content", widget: "markdown" }
+      - { name: "", label: "Content", widget: "markdown" }
       - *seo
+      - label: "Order"
+        name: "order"
+        widget: "number"
+        default: 0
+        hint: "Kolejność elementów w menu. Możesz przeciągać w CMS."
+      - label: "Hidden"
+        name: "hidden"
+        widget: "boolean"
+        default: false
 
   # Global Site Configuration
   - name: "configs"
