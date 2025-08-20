@@ -81,28 +81,33 @@ media_library:
     cloud_name: dgdoyeu6y
     api_key: 391131789616344
 
-# Component SEO for pages
-seo: &seo
-  name: "SEOmetaData"
-  label: "SEO"
+# Component META for pages
+meta: &meta
+  name: "MetametaData"
+  label: "Meta"
   widget: "object"
   collapsed: true
   fields:
     - {
         name: "metaTitle",
-        label: "SEO Title",
+        label: "Meta Title",
         widget: "string",
         required: false,
       }
     - {
         name: "metaDescription",
-        label: "SEO Description",
+        label: "Meta Description",
         widget: "string",
         pattern: [".{20,160}", "between 20 and 160 characters"],
         required: false,
         hint: "must be between 20 and 160 characters",
       }
-    - { name: "metaImage", label: "SEO image", widget: "image", required: false }
+    - {
+        name: "metaImage",
+        label: "Meta image",
+        widget: "image",
+        required: false
+      }
     - {
         name: "keywords",
         label: "Keywords",
@@ -126,7 +131,7 @@ collections:
       - { name: "body", label: "Zawartość", widget: "markdown" }
       - { name: "title", label: "Tytuł (title)", widget: "string" }
       - { name: "description", label: "Opis (description)", widget: "string" }
-      - *seo
+      - *meta
       - label: "Kolejność"
         name: "order"
         widget: "number"
