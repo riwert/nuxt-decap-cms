@@ -8,7 +8,7 @@ const { data: product } = reactive(await useAsyncData("product", () =>
 
 <template>
 	<main :key="setLocale">
-		<div class="singular-product">
+		<div v-if="product" class="singular-product">
 			<h1>{{ product.title }}</h1>
 			<blockquote>{{ product.description }}</blockquote>
 			<MediaRespImage :url="product.image" :lightbox="true" />

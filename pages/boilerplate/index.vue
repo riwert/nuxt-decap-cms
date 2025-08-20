@@ -7,10 +7,9 @@ const { data: index } = reactive(await useAsyncData("index", () =>
 </script>
 
 <template>
-	<main id="main" class="index">
+	<main v-if="index" id="main" class="index">
 		<MDC :value="index" />
 	</main>
-
 </template>
 
 <style lang="scss" scoped>
