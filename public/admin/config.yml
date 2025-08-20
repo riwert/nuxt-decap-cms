@@ -120,7 +120,7 @@ collections:
     extension: "md"
     format: "frontmatter"
     slug: "{{slug}}"
-    sortable_fields: ["order"]
+    sortable_fields: ["order", "title"]
     fields:
       - { name: "body", label: "Zawartość", widget: "markdown" }
       - { name: "title", label: "Tytuł (title)", widget: "string" }
