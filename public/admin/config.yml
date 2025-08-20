@@ -15,10 +15,48 @@ i18n:
   strings:
     add: "Dodaj"
     remove: "Usuń"
+    create_new: "Utwórz nowy"
+    save: "Zapisz"
+    cancel: "Anuluj"
+    edit: "Edytuj"
+    delete: "Usuń"
+    duplicate: "Duplikuj"
     publish: "Opublikuj"
     unpublish: "Cofnij publikację"
-    delete: "Usuń"
-    new: "Nowa"
+    open_preview: "Podgląd"
+    close_preview: "Zamknij podgląd"
+    search: "Szukaj"
+    filter: "Filtruj"
+    sort: "Sortuj"
+    move_up: "Przenieś w górę"
+    move_down: "Przenieś w dół"
+
+    # Formularze i pola
+    required_field: "Pole wymagane"
+    optional_field: "Pole opcjonalne"
+    invalid_value: "Nieprawidłowa wartość"
+    select_option: "Wybierz opcję"
+
+    # Status i powiadomienia
+    published: "Opublikowano"
+    draft: "Szkic"
+    changed: "Zmiany zapisane"
+    unsaved_changes: "Masz niezapisane zmiany"
+    error_saving: "Błąd podczas zapisu"
+    loading: "Ładowanie..."
+    no_entries: "Brak wpisów"
+    entries_found: "{count} wpisów znaleziono"
+
+    # Nawigacja i menu
+    back: "Powrót"
+    home: "Strona główna"
+    settings: "Ustawienia"
+    configuration: "Konfiguracja"
+    content: "Treść"
+    collections: "Kolekcje"
+    single_types: "Typy pojedyncze"
+
+    # Dodatkowe tłumaczenia
     "Contents": "Zawartości"
     "Collections": "Administracja"
     "Search all": "Szukaj..."
