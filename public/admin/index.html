@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Content Manager</title>
+    <title>CMS</title>
     <!-- Include the script that enables Netlify Identity on this page. -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
@@ -13,6 +13,19 @@
     <script src="https://unpkg.com/decap-cms-locales@^3.0.0/dist/locales/pl.js"></script>
     <script>
       CMS.registerLocale('pl', CMS.locales.pl);
+
+      CMS.init({
+        config: {
+          backend: {
+            name: 'git-gateway',
+            branch: 'main',
+          },
+          i18n: {
+            structure: 'single',       // wymagane, ale możesz ustawić single jeśli tylko panel ma być po polsku
+            default_locale: 'pl',      // domyślny język panelu
+          },
+        },
+      });
     </script>
   </body>
 </html>
