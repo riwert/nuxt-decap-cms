@@ -8,8 +8,8 @@
 		<nav :class="{ mobileMenuOpen: mobileMenuActive }">
 
 			<menu class="main-menu__basic">
-				<ContentList path="/pages" v-slot="{ list }">
-					<NuxtLink v-for="page in list" :key="page._path" :to="page._path" class="menu-item" prefetch>
+				<ContentList path="/" :query="{ where: { _partial: false }, sort: [{ order: 1 }] }"  v-slot="{ list }">
+					<NuxtLink v-for="page in list.filter(pg => !pg.hidden)" :key="page._path" :to="page._path" class="menu-item" prefetch>
 						<span>{{page.title}}</span>
 					</NuxtLink>
 				</ContentList>

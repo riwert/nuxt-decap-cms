@@ -8,9 +8,9 @@ export default function (seoData) {
     // return set absolute url or create one 
     let imageUrl = computed(() => {
         if(isAbsolute) {
-            return seoData.metaImage
+            return seoData?.metaImage
         } else {
-            return assetUrlBase + seoData.metaImage
+            return assetUrlBase + seoData?.metaImage
         }
     }) 
     useSeoMeta({

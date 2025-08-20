@@ -2,20 +2,34 @@
 
 const route = useRoute()
 
-const slugPath = '/' + (route.params.slug ? route.params.slug.join('/') : 'pages')
-
-const { data: page } = await useAsyncData(`page-${slugPath}`, () =>
-  queryContent('pages').where({ _path: slugPath }).findOne()
-)
-
-// setSeoHead(page.SEOmetaData);
+const slugPath = route.params.slug
+  ? Array.isArray(route.params.slug)
+    ? '/' + route.params.slug.join('/')
+    : '/' + route.params.slug
+  : '/'
 
 </script>
 
 <template>
 	<main id="main" class="home">
-		<h1 v-if="page.title">{{ page.title }}</h1>
-		<MDC v-if="page.content" :value="page.content" />
+		<ContentDoc :path="slugPath">
+      <template #default="{ doc }">
+        <article>
+          <h1>{{ doc.title }}</h1>
+          <ContentRenderer :value="doc" />
+        </article>
+      </template>
+
+			<template #empty>
+        <h1>204</h1>
+        <p>Brak zwartości.</p>
+      </template>
+
+      <template #not-found>
+        <h1>404</h1>
+        <p>Nie znaleziono strony.</p>
+      </template>
+    </ContentDoc>
 	</main>
 </template>
 
