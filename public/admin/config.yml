@@ -9,13 +9,6 @@ backend:
     create: "Dodano {{collection}} „{{slug}}”"
     update: "Zaktualizowano {{collection}} „{{slug}}”"
     delete: "Usunięto {{collection}} „{{slug}}”"
-
-# Tłumaczenia / etykiety
-i18n:
-  structure: single_file
-  locales:
-    - pl
-  default_locale: pl
   strings:
     add: "Dodaj"
     remove: "Usuń"
