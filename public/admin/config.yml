@@ -39,7 +39,7 @@ seo: &seo
         required: false,
         hint: "must be between 20 and 160 characters",
       }
-    - { name: "metaImage", label: "SEO image", widget: "image" }
+    - { name: "metaImage", label: "SEO image", widget: "image", required: false }
     - {
         name: "keywords",
         label: "Keywords",
