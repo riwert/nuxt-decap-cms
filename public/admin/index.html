@@ -9,26 +9,11 @@
   </head>
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <script src="https://unpkg.com/decap-cms-locales@^3.0.0/dist/locales/pl.js" onload="initCMS()"></script>
+    <script src="https://unpkg.com/decap-cms-locales@^3.0.0/dist/locales/pl.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" onload="initCMS()"></script>
     <script>
       function initCMS() {
-        // Rejestracja języka po załadowaniu locale
         CMS.registerLocale('pl', CMS.locales.pl);
-
-        // Inicjalizacja CMS
-        CMS.init({
-          config: {
-            backend: {
-              name: 'git-gateway',
-              branch: 'main',
-            },
-            i18n: {
-              structure: 'single',
-              default_locale: 'pl',
-            },
-          },
-        });
       }
     </script>
   </body>
