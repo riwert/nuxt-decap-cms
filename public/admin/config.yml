@@ -12,7 +12,7 @@ backend:
 
 # Tłumaczenia / etykiety
 i18n:
-  structure: single
+  structure: single_file
   locales:
     - pl
   default_locale: pl
