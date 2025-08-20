@@ -1,7 +1,7 @@
 ---
 title: Kontakt
 description: Dane kontaktowe
-order: 5
+order: 7
 hidden: false
 ---
 Zapraszam do kontaktu:
