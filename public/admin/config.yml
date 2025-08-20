@@ -5,6 +5,27 @@ local_backend: true
 backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
+  commit_messages:
+    create: "Dodano {{collection}} „{{slug}}”"
+    update: "Zaktualizowano {{collection}} „{{slug}}”"
+    delete: "Usunięto {{collection}} „{{slug}}”"
+
+# Tłumaczenia / etykiety
+i18n:
+  strings:
+    add: "Dodaj"
+    remove: "Usuń"
+    publish: "Opublikuj"
+    unpublish: "Cofnij publikację"
+    delete: "Usuń"
+    new: "Nowa"
+    "Contents": "Zawartości"
+    "Collections": "Administracja"
+    "Search all": "Szukaj..."
+    "Quick add": "Szybko Dodaj"
+    "Sorty by": "Sortuj wg"
+    "Media Library": "Biblioteka Multimediów"
+    "Log Out": "Wyloguj"
 
 media_folder: "public/upload"
 public_folder: "/"
@@ -51,7 +72,7 @@ seo: &seo
 collections:
   # PAGES
   - name: "pages"
-    label: "Pages"
+    label: "Strony"
     folder: "content"
     create: true
     delete: true
@@ -60,62 +81,61 @@ collections:
     slug: "{{slug}}"
     sortable_fields: ["order"]
     fields:
-      - { name: "title", label: "Title", widget: "string" }
-      - { name: "description", label: "Description", widget: "string" }
-      - { name: "body", label: "Content", widget: "markdown" }
+      - { name: "body", label: "Zawartość", widget: "markdown" }
+      - { name: "title", label: "Tytuł (title)", widget: "string" }
+      - { name: "description", label: "Opis (description)", widget: "string" }
       - *seo
-      - label: "Order"
+      - label: "Kolejność"
         name: "order"
         widget: "number"
         default: 0
-        hint: "Kolejność elementów w menu. Możesz przeciągać w CMS."
-      - label: "Hidden"
+        hint: "Kolejność elementów w menu"
+      - label: "Ukryj"
         name: "hidden"
         widget: "boolean"
         default: false
 
   # Global Site Configuration
   - name: "configs"
-    label: "Config"
+    label: "Konfiguracja"
     files:
-      - label: "Site Settings"
+      - label: "Ustawienia Strony"
         name: "settings"
         file: "content/config/settings.json"
         fields:
-          - { label: "Site Name", name: "siteName", widget: "string" }
-          - { label: "Site URL", name: "siteUrl", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "string" }
-          - { label: "Logo", name: "logo", widget: "image" }
-          - { label: "Favicon", name: "favicon", widget: "image" }
+          - { label: "Nazwa Strony", name: "siteName", widget: "string" }
+          - { label: "Adres URL Strony", name: "siteUrl", widget: "string" }
+          - { label: "Logo Strony", name: "logo", widget: "image" }
+          - { label: "Favicona Strony", name: "favicon", widget: "image" }
           - {
-              label: "Theme Color",
+              label: "Główny Kolor Strony",
               name: "themeColor",
               widget: "color",
               enableAlpha: true,
             }
           - {
-              label: "Analytics ID",
+              label: "ID Analityki Strony",
               name: "analyticsId",
               widget: "string",
               required: false,
             }
 
-      - label: "Button Labels"
+      - label: "Etykiety Przycisków"
         name: "buttons"
         file: "content/config/buttons.json"
         fields:
-          - { label: "Next", name: "next", widget: "string" }
-          - { label: "Previous", name: "previous", widget: "string" }
-          - { label: "Close", name: "close", widget: "string" }
+          - { label: "Następny", name: "next", widget: "string", default: "Następny" }
+          - { label: "Poprzedni", name: "previous", widget: "string", default: "Poprzedni" }
+          - { label: "Zamknij", name: "close", widget: "string", default: "Zamknij" }
           - {
-              label: "Article: More",
+              label: "Artykuł: Więcej",
               name: "article",
               widget: "string",
-              default: "Read more",
+              default: "Zobacz więcej",
             }
-          - { label: "Form: Send", name: "send", widget: "string" }
+          - { label: "Formularz: Wyślij", name: "send", widget: "string", default: "Wyślij" }
 
-      - label: "Social Links"
+      - label: "Linki Społecznościowe"
         name: "socials"
         file: "content/config/social-links.json"
         fields:
