@@ -12,6 +12,10 @@ backend:
 
 # Tłumaczenia / etykiety
 i18n:
+  structure: single
+  locales:
+    - pl
+  default_locale: pl
   strings:
     add: "Dodaj"
     remove: "Usuń"
