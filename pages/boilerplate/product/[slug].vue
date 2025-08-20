@@ -1,23 +1,21 @@
+<script setup>
+const route = useRoute();
+
+const { data: product } = reactive(await useAsyncData("product", () =>
+	queryContent("/products", route.params.slug).findOne())
+);
+</script>
+
 <template>
 	<main :key="setLocale">
 		<div class="singular-product">
 			<h1>{{ product.title }}</h1>
 			<blockquote>{{ product.description }}</blockquote>
 			<MediaRespImage :url="product.image" :lightbox="true" />
-			<MDC :value="product.content" />
+			<MDC :value="product" />
 		</div>
 	</main>
 </template>
-<script setup>
-
-const route = useRoute();
-
-const { data: product } = reactive(await useAsyncData("product", () =>
-	queryContent("/products", route.params.slug).findOne())
-);
-
-</script>
-
 
 <style lang="scss">
 .singular-product {

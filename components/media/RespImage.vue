@@ -1,21 +1,4 @@
-<template>
-	<div class="responsive-image" @[clickEvent]="openLightbox">
-		<img :key="props.url" :src="imageUrl" :class="{ '__has-lightbox': props.lightbox }" width="800" height="600"
-			:alt="imageUrl" />
-
-		<div v-if="lightbox" class="lightbox-hint">
-			<span class="__enlarge" v-if="diagOpen === false">&#10063;</span>
-			<span class="__minimize" v-if="diagOpen === true">&#10064;</span>
-		</div>
-	</div>
-	<dialog v-if="lightbox" :class="{ __lightbox: diagOpen }">
-		<button class="button" @click="closeLightbox">close</button>
-		<img :key="props.url" :src="imageUrl" />
-	</dialog>
-</template>
-
 <script setup>
-
 import cldDelivery from '~/composables/cldDelivery';
 
 // NOTES
@@ -73,7 +56,6 @@ function closeLightbox() {
 	body.classList.remove("lightbox-active");
 }
 
-
 // colors from SCSS!
 import variables from '~/assets/scss/variables.module.scss';
 
@@ -85,6 +67,21 @@ const accentColor = computed(() => {
 })
 </script>
 
+<template>
+	<div class="responsive-image" @[clickEvent]="openLightbox">
+		<img :key="props.url" :src="imageUrl" :class="{ '__has-lightbox': props.lightbox }" width="800" height="600"
+			:alt="imageUrl" />
+
+		<div v-if="lightbox" class="lightbox-hint">
+			<span class="__enlarge" v-if="diagOpen === false">&#10063;</span>
+			<span class="__minimize" v-if="diagOpen === true">&#10064;</span>
+		</div>
+	</div>
+	<dialog v-if="lightbox" :class="{ __lightbox: diagOpen }">
+		<button class="button" @click="closeLightbox">close</button>
+		<img :key="props.url" :src="imageUrl" />
+	</dialog>
+</template>
 
 <style lang="scss" scoped>
 .responsive-image {

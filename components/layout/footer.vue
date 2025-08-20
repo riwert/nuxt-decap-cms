@@ -1,13 +1,12 @@
 <template>
 	<footer>
 		<div
-			id="__by-sailsnake"
+			id="__by-revert"
 		>
-			<p>build by:</p>
-			<a href="http://www.sailsnake.com" target="_blank" aria-label="link to www.sailsnake.com">
-				<img src="/images/logos/Sailsnake-logo--footer.png" width="941" height="408" alt="Sailsnake creative studio - logo "/>
-			</a
-			>
+			<p>made by:</p>
+			<a href="https://revert.pl" title="Zobacz stronę autora Revert.pl" target="_blank">
+				Revert.pl
+			</a>
 		</div>
 	</footer>
 </template>
@@ -38,7 +37,7 @@
 		}
 	}
 
-	#__by-sailsnake {
+	#__by-revert {
 		grid-column: 2;
 		padding: $spacing1;
 		justify-self: center;

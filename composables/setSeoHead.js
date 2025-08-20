@@ -4,7 +4,7 @@ export default function (seoData) {
     const cEnv = rtc.public.cloudinaryEnvUrl;
     const assetUrlBase = cEnv + "/image/upload" + "/c_scale/w_600/q_auto:best"
     // check if metaImage is an absolute url or not
-    let isAbsolute = /^([a-z0-9]*:|.{0})\/\/.*$/.test(seoData.metaImage)
+    let isAbsolute = /^([a-z0-9]*:|.{0})\/\/.*$/.test(seoData?.metaImage)
     // return set absolute url or create one 
     let imageUrl = computed(() => {
         if(isAbsolute) {
@@ -14,11 +14,11 @@ export default function (seoData) {
         }
     }) 
     useSeoMeta({
-        title: seoData.metaTitle,
-        description: seoData.metaDescription,
-        keywords: seoData.keywords,
-        ogTitle: seoData.metaTitle,
-        ogDescription: seoData.metaDescription,
+        title: seoData?.metaTitle,
+        description: seoData?.metaDescription,
+        keywords: seoData?.keywords,
+        ogTitle: seoData?.metaTitle,
+        ogDescription: seoData?.metaDescription,
         ogImage: imageUrl
     })
 }

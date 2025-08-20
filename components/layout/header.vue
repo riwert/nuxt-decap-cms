@@ -5,7 +5,6 @@
 	</header>
 </template>
 
-
 <style lang="scss" scoped>
 #header {
 	position: relative;

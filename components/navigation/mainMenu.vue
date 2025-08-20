@@ -1,3 +1,23 @@
+<script setup>
+const mobileMenuActive = ref(false);
+const route = useRoute();
+watch(route, () => {
+	mobileMenuActive.value = false;
+});
+
+function toggleMobileMenu() {
+	mobileMenuActive.value = !mobileMenuActive.value;
+}
+
+watch(
+	// closes menu on route change
+	() => route.path,
+	() => {
+		mobileMenuActive.value = false
+	}
+)
+</script>
+
 <template>
 	<div id="main-menu">
 		<div id="mobile-menu__toggle-button" @click="toggleMobileMenu()" :class="{ mobileMenuOpen: mobileMenuActive }">
@@ -18,29 +38,6 @@
 		</nav>
 	</div>
 </template>
-
-<script setup>
-
-const links = ["products", "dynamic-fields", "contact"];
-const mobileMenuActive = ref(false);
-const route = useRoute();
-watch(route, () => {
-	mobileMenuActive.value = false;
-});
-
-function toggleMobileMenu() {
-	mobileMenuActive.value = !mobileMenuActive.value;
-}
-
-watch(
-	// closes menu on route change
-	() => route.path,
-	() => {
-		mobileMenuActive.value = false
-	}
-)
-
-</script>
 
 <style lang="scss" scoped>
 nav {

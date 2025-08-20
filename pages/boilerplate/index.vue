@@ -1,19 +1,17 @@
+<script setup>
+const { data: index } = reactive(await useAsyncData("index", () =>
+	queryContent("/index").findOne())
+);
+
+// setSeoHead(index?.SEOmetaData);
+</script>
+
 <template>
 	<main id="main" class="index">
-		<MDC :value="index.content" />
+		<MDC :value="index" />
 	</main>
 
 </template>
-
-<script setup>
-
-const { data: index } = reactive(await useAsyncData("index", () =>
-	queryContent("/pages/index").findOne())
-);
-
-setSeoHead(index.SEOmetaData);
-
-</script>
 
 <style lang="scss" scoped>
 main {
