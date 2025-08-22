@@ -118,10 +118,10 @@ collections:
     sortable_fields: ["order", "title"]
     fields:
       - { name: "body", label: "Zawartość", widget: "markdown" }
-      - { name: "title", label: "Tytuł (title)", widget: "string" }
-      - { name: "description", label: "Opis (description)", widget: "string" }
+      - { name: "title", label: "Tytuł", widget: "string" }
+      - { name: "description", label: "Opis", widget: "string" }
       - *meta
-      - label: "Kolejność (order)"
+      - label: "Kolejność"
         name: "order"
         widget: "number"
         default: 0
